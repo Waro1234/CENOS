@@ -28,21 +28,22 @@ public class DutchJavaParser extends Parser {
 		RULE_parse = 0, RULE_blok = 1, RULE_statement = 2, RULE_als_statement = 3, 
 		RULE_zolang_statement = 4, RULE_voor_statement = 5, RULE_voor_blok = 6, 
 		RULE_toekenning = 7, RULE_conditie_block = 8, RULE_stat_blok = 9, RULE_methodeAANROEP = 10, 
-		RULE_methodeUITVOERING = 11, RULE_vooralle_statement = 12, RULE_vooralle_blok = 13, 
-		RULE_expressie = 14, RULE_value_expressie = 15, RULE_atom = 16;
+		RULE_methodeUITVOERING = 11, RULE_argument = 12, RULE_argument_type = 13, 
+		RULE_vooralle_statement = 14, RULE_vooralle_blok = 15, RULE_expressie = 16, 
+		RULE_value_expressie = 17, RULE_atom = 18;
 	public static final String[] ruleNames = {
 		"parse", "blok", "statement", "als_statement", "zolang_statement", "voor_statement", 
 		"voor_blok", "toekenning", "conditie_block", "stat_blok", "methodeAANROEP", 
-		"methodeUITVOERING", "vooralle_statement", "vooralle_blok", "expressie", 
-		"value_expressie", "atom"
+		"methodeUITVOERING", "argument", "argument_type", "vooralle_statement", 
+		"vooralle_blok", "expressie", "value_expressie", "atom"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'als'", "'alsanders'", "'anders'", "'zolang'", "'voor'", "'{'", 
-		"'}'", "'functie'", "'vooralle'", "':'", "'!'", "','", "'waar'", "'onwaar'", 
-		"'nul'", null, null, "'=='", "'!='", "'>'", "'<'", "'>='", "'<='", "'-'", 
-		"'+'", "'*'", "'/'", "'%'", null, null, null, null, "';'", null, "'('", 
-		"')'", "'geefterug'", null, "'draad'", "'nummer'", "'lang'", "'booleaans'", 
+		"'}'", "'functie'", "','", "'waar'", "'onwaar'", "'vooralle'", "':'", 
+		"'!'", "'nul'", null, null, "'=='", "'!='", "'>'", "'<'", "'>='", "'<='", 
+		"'-'", "'+'", "'*'", "'/'", "'%'", null, null, null, null, "';'", null, 
+		"'('", "')'", "'geefterug'", null, "'draad'", "'nummer'", "'lang'", "'booleaans'", 
 		"'leegte'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
@@ -125,9 +126,9 @@ public class DutchJavaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(34);
+			setState(38);
 			blok();
-			setState(35);
+			setState(39);
 			match(EOF);
 			}
 		}
@@ -167,17 +168,17 @@ public class DutchJavaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(40);
+			setState(44);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__3) | (1L << T__4) | (1L << T__7) | (1L << T__8) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << HAAKOPEN) | (1L << DATATYPE) | (1L << ID) | (1L << INT) | (1L << FLOAT) | (1L << STRING))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__3) | (1L << T__4) | (1L << T__7) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__14) | (1L << HAAKOPEN) | (1L << DATATYPE) | (1L << ID) | (1L << INT) | (1L << FLOAT) | (1L << STRING))) != 0)) {
 				{
 				{
-				setState(37);
+				setState(41);
 				statement();
 				}
 				}
-				setState(42);
+				setState(46);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -299,14 +300,14 @@ public class DutchJavaParser extends Parser {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_statement);
 		try {
-			setState(53);
+			setState(57);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 			case 1:
 				_localctx = new AlsStatementContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(43);
+				setState(47);
 				als_statement();
 				}
 				break;
@@ -314,7 +315,7 @@ public class DutchJavaParser extends Parser {
 				_localctx = new VoorStatementContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(44);
+				setState(48);
 				voor_statement();
 				}
 				break;
@@ -322,7 +323,7 @@ public class DutchJavaParser extends Parser {
 				_localctx = new VoorAlleStatementContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(45);
+				setState(49);
 				vooralle_statement();
 				}
 				break;
@@ -330,7 +331,7 @@ public class DutchJavaParser extends Parser {
 				_localctx = new ZolangStatementContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(46);
+				setState(50);
 				zolang_statement();
 				}
 				break;
@@ -338,7 +339,7 @@ public class DutchJavaParser extends Parser {
 				_localctx = new MethodeUitvoeringStatementContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(47);
+				setState(51);
 				methodeUITVOERING();
 				}
 				break;
@@ -346,7 +347,7 @@ public class DutchJavaParser extends Parser {
 				_localctx = new MethodeAanroepStatementContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(48);
+				setState(52);
 				methodeAANROEP();
 				}
 				break;
@@ -354,7 +355,7 @@ public class DutchJavaParser extends Parser {
 				_localctx = new ToekenningStatementContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(49);
+				setState(53);
 				toekenning();
 				}
 				break;
@@ -362,9 +363,9 @@ public class DutchJavaParser extends Parser {
 				_localctx = new ExpressieStatementContext(_localctx);
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(50);
+				setState(54);
 				value_expressie(0);
-				setState(51);
+				setState(55);
 				match(SEMICOL);
 				}
 				break;
@@ -409,36 +410,36 @@ public class DutchJavaParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(55);
+			setState(59);
 			match(T__0);
-			setState(56);
+			setState(60);
 			conditie_block();
-			setState(61);
+			setState(65);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(57);
+					setState(61);
 					match(T__1);
-					setState(58);
+					setState(62);
 					conditie_block();
 					}
 					} 
 				}
-				setState(63);
+				setState(67);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			}
-			setState(66);
+			setState(70);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
 				{
-				setState(64);
+				setState(68);
 				match(T__2);
-				setState(65);
+				setState(69);
 				stat_blok();
 				}
 				break;
@@ -480,11 +481,11 @@ public class DutchJavaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(68);
+			setState(72);
 			match(T__3);
-			setState(69);
+			setState(73);
 			expressie(0);
-			setState(70);
+			setState(74);
 			stat_blok();
 			}
 		}
@@ -523,11 +524,11 @@ public class DutchJavaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(72);
+			setState(76);
 			match(T__4);
-			setState(73);
+			setState(77);
 			voor_blok();
-			setState(74);
+			setState(78);
 			stat_blok();
 			}
 		}
@@ -572,17 +573,17 @@ public class DutchJavaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(76);
-			match(HAAKOPEN);
-			setState(77);
-			toekenning();
-			setState(78);
-			expressie(0);
-			setState(79);
-			match(SEMICOL);
 			setState(80);
-			value_expressie(0);
+			match(HAAKOPEN);
 			setState(81);
+			toekenning();
+			setState(82);
+			expressie(0);
+			setState(83);
+			match(SEMICOL);
+			setState(84);
+			value_expressie(0);
+			setState(85);
 			match(HAAKSLUIT);
 			}
 		}
@@ -622,15 +623,15 @@ public class DutchJavaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(83);
-			match(DATATYPE);
-			setState(84);
-			match(ID);
-			setState(85);
-			match(KENTOE);
-			setState(86);
-			expressie(0);
 			setState(87);
+			match(DATATYPE);
+			setState(88);
+			match(ID);
+			setState(89);
+			match(KENTOE);
+			setState(90);
+			expressie(0);
+			setState(91);
 			match(SEMICOL);
 			}
 		}
@@ -671,9 +672,9 @@ public class DutchJavaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(89);
+			setState(93);
 			((Conditie_blockContext)_localctx).expr = expressie(0);
-			setState(90);
+			setState(94);
 			((Conditie_blockContext)_localctx).sBlock = stat_blok();
 			}
 		}
@@ -710,17 +711,17 @@ public class DutchJavaParser extends Parser {
 		Stat_blokContext _localctx = new Stat_blokContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_stat_blok);
 		try {
-			setState(97);
+			setState(101);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__5:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(92);
+				setState(96);
 				match(T__5);
-				setState(93);
+				setState(97);
 				blok();
-				setState(94);
+				setState(98);
 				match(T__6);
 				}
 				break;
@@ -728,9 +729,9 @@ public class DutchJavaParser extends Parser {
 			case T__3:
 			case T__4:
 			case T__7:
-			case T__8:
-			case T__12:
-			case T__13:
+			case T__9:
+			case T__10:
+			case T__11:
 			case T__14:
 			case HAAKOPEN:
 			case DATATYPE:
@@ -740,7 +741,7 @@ public class DutchJavaParser extends Parser {
 			case STRING:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(96);
+				setState(100);
 				statement();
 				}
 				break;
@@ -762,11 +763,11 @@ public class DutchJavaParser extends Parser {
 	public static class MethodeAANROEPContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(DutchJavaParser.ID, 0); }
 		public TerminalNode HAAKOPEN() { return getToken(DutchJavaParser.HAAKOPEN, 0); }
-		public ExpressieContext expressie() {
-			return getRuleContext(ExpressieContext.class,0);
-		}
 		public TerminalNode HAAKSLUIT() { return getToken(DutchJavaParser.HAAKSLUIT, 0); }
 		public TerminalNode SEMICOL() { return getToken(DutchJavaParser.SEMICOL, 0); }
+		public ArgumentContext argument() {
+			return getRuleContext(ArgumentContext.class,0);
+		}
 		public MethodeAANROEPContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -781,18 +782,27 @@ public class DutchJavaParser extends Parser {
 	public final MethodeAANROEPContext methodeAANROEP() throws RecognitionException {
 		MethodeAANROEPContext _localctx = new MethodeAANROEPContext(_ctx, getState());
 		enterRule(_localctx, 20, RULE_methodeAANROEP);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(99);
-			match(ID);
-			setState(100);
-			match(HAAKOPEN);
-			setState(101);
-			expressie(0);
-			setState(102);
-			match(HAAKSLUIT);
 			setState(103);
+			match(ID);
+			setState(104);
+			match(HAAKOPEN);
+			setState(106);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__9) | (1L << T__10) | (1L << ID) | (1L << INT) | (1L << FLOAT))) != 0)) {
+				{
+				setState(105);
+				argument();
+				}
+			}
+
+			setState(108);
+			match(HAAKSLUIT);
+			setState(109);
 			match(SEMICOL);
 			}
 		}
@@ -810,12 +820,12 @@ public class DutchJavaParser extends Parser {
 	public static class MethodeUITVOERINGContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(DutchJavaParser.ID, 0); }
 		public TerminalNode HAAKOPEN() { return getToken(DutchJavaParser.HAAKOPEN, 0); }
-		public ExpressieContext expressie() {
-			return getRuleContext(ExpressieContext.class,0);
-		}
 		public TerminalNode HAAKSLUIT() { return getToken(DutchJavaParser.HAAKSLUIT, 0); }
 		public Stat_blokContext stat_blok() {
 			return getRuleContext(Stat_blokContext.class,0);
+		}
+		public ArgumentContext argument() {
+			return getRuleContext(ArgumentContext.class,0);
 		}
 		public MethodeUITVOERINGContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -831,21 +841,133 @@ public class DutchJavaParser extends Parser {
 	public final MethodeUITVOERINGContext methodeUITVOERING() throws RecognitionException {
 		MethodeUITVOERINGContext _localctx = new MethodeUITVOERINGContext(_ctx, getState());
 		enterRule(_localctx, 22, RULE_methodeUITVOERING);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(105);
+			setState(111);
 			match(T__7);
-			setState(106);
+			setState(112);
 			match(ID);
-			setState(107);
+			setState(113);
 			match(HAAKOPEN);
-			setState(108);
-			expressie(0);
-			setState(109);
+			setState(115);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__9) | (1L << T__10) | (1L << ID) | (1L << INT) | (1L << FLOAT))) != 0)) {
+				{
+				setState(114);
+				argument();
+				}
+			}
+
+			setState(117);
 			match(HAAKSLUIT);
-			setState(110);
+			setState(118);
 			stat_blok();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ArgumentContext extends ParserRuleContext {
+		public List<Argument_typeContext> argument_type() {
+			return getRuleContexts(Argument_typeContext.class);
+		}
+		public Argument_typeContext argument_type(int i) {
+			return getRuleContext(Argument_typeContext.class,i);
+		}
+		public ArgumentContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_argument; }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DutchJavaVisitor ) return ((DutchJavaVisitor<? extends T>)visitor).visitArgument(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ArgumentContext argument() throws RecognitionException {
+		ArgumentContext _localctx = new ArgumentContext(_ctx, getState());
+		enterRule(_localctx, 24, RULE_argument);
+		try {
+			int _alt;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(125);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					setState(120);
+					argument_type();
+					setState(121);
+					match(T__8);
+					}
+					} 
+				}
+				setState(127);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+			}
+			setState(128);
+			argument_type();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Argument_typeContext extends ParserRuleContext {
+		public TerminalNode ID() { return getToken(DutchJavaParser.ID, 0); }
+		public TerminalNode INT() { return getToken(DutchJavaParser.INT, 0); }
+		public TerminalNode FLOAT() { return getToken(DutchJavaParser.FLOAT, 0); }
+		public Argument_typeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_argument_type; }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DutchJavaVisitor ) return ((DutchJavaVisitor<? extends T>)visitor).visitArgument_type(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Argument_typeContext argument_type() throws RecognitionException {
+		Argument_typeContext _localctx = new Argument_typeContext(_ctx, getState());
+		enterRule(_localctx, 26, RULE_argument_type);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(130);
+			_la = _input.LA(1);
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__9) | (1L << T__10) | (1L << ID) | (1L << INT) | (1L << FLOAT))) != 0)) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -879,15 +1001,15 @@ public class DutchJavaParser extends Parser {
 
 	public final Vooralle_statementContext vooralle_statement() throws RecognitionException {
 		Vooralle_statementContext _localctx = new Vooralle_statementContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_vooralle_statement);
+		enterRule(_localctx, 28, RULE_vooralle_statement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(112);
-			match(T__8);
-			setState(113);
+			setState(132);
+			match(T__11);
+			setState(133);
 			vooralle_blok();
-			setState(114);
+			setState(134);
 			stat_blok();
 			}
 		}
@@ -931,22 +1053,22 @@ public class DutchJavaParser extends Parser {
 
 	public final Vooralle_blokContext vooralle_blok() throws RecognitionException {
 		Vooralle_blokContext _localctx = new Vooralle_blokContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_vooralle_blok);
+		enterRule(_localctx, 30, RULE_vooralle_blok);
 		try {
 			_localctx = new VooralleBlokExprContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(116);
+			setState(136);
 			match(HAAKOPEN);
-			setState(117);
+			setState(137);
 			match(DATATYPE);
-			setState(118);
+			setState(138);
 			match(ID);
-			setState(119);
-			match(T__9);
-			setState(120);
+			setState(139);
+			match(T__12);
+			setState(140);
 			atom();
-			setState(121);
+			setState(141);
 			match(HAAKSLUIT);
 			}
 		}
@@ -1040,18 +1162,6 @@ public class DutchJavaParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class ArgumentExprContext extends ExpressieContext {
-		public List<TerminalNode> ID() { return getTokens(DutchJavaParser.ID); }
-		public TerminalNode ID(int i) {
-			return getToken(DutchJavaParser.ID, i);
-		}
-		public ArgumentExprContext(ExpressieContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof DutchJavaVisitor ) return ((DutchJavaVisitor<? extends T>)visitor).visitArgumentExpr(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class EnenExprContext extends ExpressieContext {
 		public ExpressieContext leftExpr;
 		public ExpressieContext rightExpr;
@@ -1102,96 +1212,78 @@ public class DutchJavaParser extends Parser {
 		int _parentState = getState();
 		ExpressieContext _localctx = new ExpressieContext(_ctx, _parentState);
 		ExpressieContext _prevctx = _localctx;
-		int _startState = 28;
-		enterRecursionRule(_localctx, 28, RULE_expressie, _p);
+		int _startState = 32;
+		enterRecursionRule(_localctx, 32, RULE_expressie, _p);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(137);
+			setState(149);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case MINUS:
 				{
 				_localctx = new MinusExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(124);
+				setState(144);
 				match(MINUS);
-				setState(125);
-				expressie(8);
+				setState(145);
+				expressie(7);
 				}
 				break;
-			case 2:
+			case T__13:
 				{
 				_localctx = new NietExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(126);
-				match(T__10);
-				setState(127);
-				expressie(7);
+				setState(146);
+				match(T__13);
+				setState(147);
+				expressie(6);
 				}
 				break;
-			case 3:
-				{
-				_localctx = new ArgumentExprContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(132);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
-				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-					if ( _alt==1 ) {
-						{
-						{
-						setState(128);
-						match(ID);
-						setState(129);
-						match(T__11);
-						}
-						} 
-					}
-					setState(134);
-					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
-				}
-				setState(135);
-				match(ID);
-				}
-				break;
-			case 4:
+			case T__9:
+			case T__10:
+			case T__14:
+			case HAAKOPEN:
+			case ID:
+			case INT:
+			case FLOAT:
+			case STRING:
 				{
 				_localctx = new AtomCondExprContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(136);
+				setState(148);
 				atom();
 				}
 				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(153);
+			setState(165);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,10,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(151);
+					setState(163);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 					case 1:
 						{
 						_localctx = new VergelijkingExprContext(new ExpressieContext(_parentctx, _parentState));
 						((VergelijkingExprContext)_localctx).leftExpr = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expressie);
-						setState(139);
-						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(140);
+						setState(151);
+						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
+						setState(152);
 						((VergelijkingExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GROTERDAN) | (1L << KLEINERDAN) | (1L << GROTERGELIJK) | (1L << KLEINERGELIJK))) != 0)) ) {
@@ -1202,8 +1294,8 @@ public class DutchJavaParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(141);
-						((VergelijkingExprContext)_localctx).rightExpr = expressie(7);
+						setState(153);
+						((VergelijkingExprContext)_localctx).rightExpr = expressie(6);
 						}
 						break;
 					case 2:
@@ -1211,9 +1303,9 @@ public class DutchJavaParser extends Parser {
 						_localctx = new GelijkheidExprContext(new ExpressieContext(_parentctx, _parentState));
 						((GelijkheidExprContext)_localctx).leftExpr = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expressie);
-						setState(142);
-						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(143);
+						setState(154);
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						setState(155);
 						((GelijkheidExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==GELIJKAAN || _la==NIETGELIJKAAN) ) {
@@ -1224,8 +1316,8 @@ public class DutchJavaParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(144);
-						((GelijkheidExprContext)_localctx).rightExpr = expressie(6);
+						setState(156);
+						((GelijkheidExprContext)_localctx).rightExpr = expressie(5);
 						}
 						break;
 					case 3:
@@ -1233,12 +1325,12 @@ public class DutchJavaParser extends Parser {
 						_localctx = new EnenExprContext(new ExpressieContext(_parentctx, _parentState));
 						((EnenExprContext)_localctx).leftExpr = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expressie);
-						setState(145);
-						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(146);
+						setState(157);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(158);
 						match(EN);
-						setState(147);
-						((EnenExprContext)_localctx).rightExpr = expressie(5);
+						setState(159);
+						((EnenExprContext)_localctx).rightExpr = expressie(4);
 						}
 						break;
 					case 4:
@@ -1246,20 +1338,20 @@ public class DutchJavaParser extends Parser {
 						_localctx = new OfofExprContext(new ExpressieContext(_parentctx, _parentState));
 						((OfofExprContext)_localctx).leftExpr = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expressie);
-						setState(148);
-						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(149);
+						setState(160);
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+						setState(161);
 						match(OF);
-						setState(150);
-						((OfofExprContext)_localctx).rightExpr = expressie(4);
+						setState(162);
+						((OfofExprContext)_localctx).rightExpr = expressie(3);
 						}
 						break;
 					}
 					} 
 				}
-				setState(155);
+				setState(167);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,10,_ctx);
 			}
 			}
 		}
@@ -1286,7 +1378,9 @@ public class DutchJavaParser extends Parser {
 		}
 	}
 	public static class KeerGddModExprContext extends Value_expressieContext {
+		public Value_expressieContext leftExpr;
 		public Token op;
+		public Value_expressieContext rightExpr;
 		public List<Value_expressieContext> value_expressie() {
 			return getRuleContexts(Value_expressieContext.class);
 		}
@@ -1304,6 +1398,7 @@ public class DutchJavaParser extends Parser {
 		}
 	}
 	public static class MinminPlusPlusExprContext extends Value_expressieContext {
+		public Value_expressieContext leftExpr;
 		public Value_expressieContext value_expressie() {
 			return getRuleContext(Value_expressieContext.class,0);
 		}
@@ -1323,7 +1418,9 @@ public class DutchJavaParser extends Parser {
 		}
 	}
 	public static class IsRekenExprContext extends Value_expressieContext {
+		public Value_expressieContext leftExpr;
 		public Token op;
+		public Value_expressieContext rightExpr;
 		public List<Value_expressieContext> value_expressie() {
 			return getRuleContexts(Value_expressieContext.class);
 		}
@@ -1342,7 +1439,9 @@ public class DutchJavaParser extends Parser {
 		}
 	}
 	public static class PlusMinExprContext extends Value_expressieContext {
+		public Value_expressieContext leftExpr;
 		public Token op;
+		public Value_expressieContext rightExpr;
 		public List<Value_expressieContext> value_expressie() {
 			return getRuleContexts(Value_expressieContext.class);
 		}
@@ -1379,8 +1478,8 @@ public class DutchJavaParser extends Parser {
 		int _parentState = getState();
 		Value_expressieContext _localctx = new Value_expressieContext(_ctx, _parentState);
 		Value_expressieContext _prevctx = _localctx;
-		int _startState = 30;
-		enterRecursionRule(_localctx, 30, RULE_value_expressie, _p);
+		int _startState = 34;
+		enterRecursionRule(_localctx, 34, RULE_value_expressie, _p);
 		int _la;
 		try {
 			int _alt;
@@ -1391,28 +1490,29 @@ public class DutchJavaParser extends Parser {
 			_ctx = _localctx;
 			_prevctx = _localctx;
 
-			setState(157);
+			setState(169);
 			atom();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(177);
+			setState(189);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(175);
+					setState(187);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 					case 1:
 						{
 						_localctx = new KeerGddModExprContext(new Value_expressieContext(_parentctx, _parentState));
+						((KeerGddModExprContext)_localctx).leftExpr = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_value_expressie);
-						setState(159);
+						setState(171);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(160);
+						setState(172);
 						((KeerGddModExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << KEER) | (1L << GEDEELDDOOR) | (1L << MODULO))) != 0)) ) {
@@ -1423,17 +1523,18 @@ public class DutchJavaParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(161);
-						value_expressie(6);
+						setState(173);
+						((KeerGddModExprContext)_localctx).rightExpr = value_expressie(6);
 						}
 						break;
 					case 2:
 						{
 						_localctx = new PlusMinExprContext(new Value_expressieContext(_parentctx, _parentState));
+						((PlusMinExprContext)_localctx).leftExpr = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_value_expressie);
-						setState(162);
+						setState(174);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(163);
+						setState(175);
 						((PlusMinExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==MINUS || _la==PLUS) ) {
@@ -1444,17 +1545,18 @@ public class DutchJavaParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(164);
-						value_expressie(5);
+						setState(176);
+						((PlusMinExprContext)_localctx).rightExpr = value_expressie(5);
 						}
 						break;
 					case 3:
 						{
 						_localctx = new IsRekenExprContext(new Value_expressieContext(_parentctx, _parentState));
+						((IsRekenExprContext)_localctx).leftExpr = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_value_expressie);
-						setState(165);
+						setState(177);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(166);
+						setState(178);
 						((IsRekenExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << PLUSIS) | (1L << MINIS) | (1L << KEERIS) | (1L << GEDEELDDOORIS))) != 0)) ) {
@@ -1465,32 +1567,33 @@ public class DutchJavaParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(167);
-						value_expressie(4);
+						setState(179);
+						((IsRekenExprContext)_localctx).rightExpr = value_expressie(4);
 						}
 						break;
 					case 4:
 						{
 						_localctx = new MinminPlusPlusExprContext(new Value_expressieContext(_parentctx, _parentState));
+						((MinminPlusPlusExprContext)_localctx).leftExpr = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_value_expressie);
-						setState(168);
+						setState(180);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(173);
+						setState(185);
 						_errHandler.sync(this);
 						switch (_input.LA(1)) {
 						case MINUS:
 							{
-							setState(169);
+							setState(181);
 							match(MINUS);
-							setState(170);
+							setState(182);
 							match(MINUS);
 							}
 							break;
 						case PLUS:
 							{
-							setState(171);
+							setState(183);
 							match(PLUS);
-							setState(172);
+							setState(184);
 							match(PLUS);
 							}
 							break;
@@ -1502,9 +1605,9 @@ public class DutchJavaParser extends Parser {
 					}
 					} 
 				}
-				setState(179);
+				setState(191);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
 			}
 			}
 		}
@@ -1542,20 +1645,20 @@ public class DutchJavaParser extends Parser {
 
 	public final AtomContext atom() throws RecognitionException {
 		AtomContext _localctx = new AtomContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_atom);
+		enterRule(_localctx, 36, RULE_atom);
 		int _la;
 		try {
-			setState(189);
+			setState(201);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case HAAKOPEN:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(180);
+				setState(192);
 				match(HAAKOPEN);
-				setState(181);
+				setState(193);
 				expressie(0);
-				setState(182);
+				setState(194);
 				match(HAAKSLUIT);
 				}
 				break;
@@ -1563,7 +1666,7 @@ public class DutchJavaParser extends Parser {
 			case FLOAT:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(184);
+				setState(196);
 				_la = _input.LA(1);
 				if ( !(_la==INT || _la==FLOAT) ) {
 				_errHandler.recoverInline(this);
@@ -1575,13 +1678,13 @@ public class DutchJavaParser extends Parser {
 				}
 				}
 				break;
-			case T__12:
-			case T__13:
+			case T__9:
+			case T__10:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(185);
+				setState(197);
 				_la = _input.LA(1);
-				if ( !(_la==T__12 || _la==T__13) ) {
+				if ( !(_la==T__9 || _la==T__10) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -1594,21 +1697,21 @@ public class DutchJavaParser extends Parser {
 			case ID:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(186);
+				setState(198);
 				match(ID);
 				}
 				break;
 			case STRING:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(187);
+				setState(199);
 				match(STRING);
 				}
 				break;
 			case T__14:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(188);
+				setState(200);
 				match(T__14);
 				}
 				break;
@@ -1629,9 +1732,9 @@ public class DutchJavaParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 14:
+		case 16:
 			return expressie_sempred((ExpressieContext)_localctx, predIndex);
-		case 15:
+		case 17:
 			return value_expressie_sempred((Value_expressieContext)_localctx, predIndex);
 		}
 		return true;
@@ -1639,13 +1742,13 @@ public class DutchJavaParser extends Parser {
 	private boolean expressie_sempred(ExpressieContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 6);
-		case 1:
 			return precpred(_ctx, 5);
-		case 2:
+		case 1:
 			return precpred(_ctx, 4);
-		case 3:
+		case 2:
 			return precpred(_ctx, 3);
+		case 3:
+			return precpred(_ctx, 2);
 		}
 		return true;
 	}
@@ -1664,66 +1767,70 @@ public class DutchJavaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\63\u00c2\4\2\t\2"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\63\u00ce\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\3\2\3\2\3\2\3\3\7\3)\n\3\f\3\16\3,\13\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
-		"\4\3\4\3\4\5\48\n\4\3\5\3\5\3\5\3\5\7\5>\n\5\f\5\16\5A\13\5\3\5\3\5\5"+
-		"\5E\n\5\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3"+
-		"\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\13\3\13\3\13\3\13\3\13\5\13d\n\13"+
-		"\3\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\16\3\16\3\16\3"+
-		"\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\20\3\20\3\20\3\20\3\20\3\20\3"+
-		"\20\7\20\u0085\n\20\f\20\16\20\u0088\13\20\3\20\3\20\5\20\u008c\n\20\3"+
-		"\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\7\20\u009a"+
-		"\n\20\f\20\16\20\u009d\13\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3"+
-		"\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\5\21\u00b0\n\21\7\21\u00b2"+
-		"\n\21\f\21\16\21\u00b5\13\21\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3"+
-		"\22\5\22\u00c0\n\22\3\22\2\4\36 \23\2\4\6\b\n\f\16\20\22\24\26\30\32\34"+
-		"\36 \"\2\t\3\2\26\31\3\2\24\25\3\2\34\36\3\2\32\33\3\2\37\"\3\2/\60\3"+
-		"\2\17\20\u00cd\2$\3\2\2\2\4*\3\2\2\2\6\67\3\2\2\2\b9\3\2\2\2\nF\3\2\2"+
-		"\2\fJ\3\2\2\2\16N\3\2\2\2\20U\3\2\2\2\22[\3\2\2\2\24c\3\2\2\2\26e\3\2"+
-		"\2\2\30k\3\2\2\2\32r\3\2\2\2\34v\3\2\2\2\36\u008b\3\2\2\2 \u009e\3\2\2"+
-		"\2\"\u00bf\3\2\2\2$%\5\4\3\2%&\7\2\2\3&\3\3\2\2\2\')\5\6\4\2(\'\3\2\2"+
-		"\2),\3\2\2\2*(\3\2\2\2*+\3\2\2\2+\5\3\2\2\2,*\3\2\2\2-8\5\b\5\2.8\5\f"+
-		"\7\2/8\5\32\16\2\608\5\n\6\2\618\5\30\r\2\628\5\26\f\2\638\5\20\t\2\64"+
-		"\65\5 \21\2\65\66\7#\2\2\668\3\2\2\2\67-\3\2\2\2\67.\3\2\2\2\67/\3\2\2"+
-		"\2\67\60\3\2\2\2\67\61\3\2\2\2\67\62\3\2\2\2\67\63\3\2\2\2\67\64\3\2\2"+
-		"\28\7\3\2\2\29:\7\3\2\2:?\5\22\n\2;<\7\4\2\2<>\5\22\n\2=;\3\2\2\2>A\3"+
-		"\2\2\2?=\3\2\2\2?@\3\2\2\2@D\3\2\2\2A?\3\2\2\2BC\7\5\2\2CE\5\24\13\2D"+
-		"B\3\2\2\2DE\3\2\2\2E\t\3\2\2\2FG\7\6\2\2GH\5\36\20\2HI\5\24\13\2I\13\3"+
-		"\2\2\2JK\7\7\2\2KL\5\16\b\2LM\5\24\13\2M\r\3\2\2\2NO\7%\2\2OP\5\20\t\2"+
-		"PQ\5\36\20\2QR\7#\2\2RS\5 \21\2ST\7&\2\2T\17\3\2\2\2UV\7(\2\2VW\7.\2\2"+
-		"WX\7$\2\2XY\5\36\20\2YZ\7#\2\2Z\21\3\2\2\2[\\\5\36\20\2\\]\5\24\13\2]"+
-		"\23\3\2\2\2^_\7\b\2\2_`\5\4\3\2`a\7\t\2\2ad\3\2\2\2bd\5\6\4\2c^\3\2\2"+
-		"\2cb\3\2\2\2d\25\3\2\2\2ef\7.\2\2fg\7%\2\2gh\5\36\20\2hi\7&\2\2ij\7#\2"+
-		"\2j\27\3\2\2\2kl\7\n\2\2lm\7.\2\2mn\7%\2\2no\5\36\20\2op\7&\2\2pq\5\24"+
-		"\13\2q\31\3\2\2\2rs\7\13\2\2st\5\34\17\2tu\5\24\13\2u\33\3\2\2\2vw\7%"+
-		"\2\2wx\7(\2\2xy\7.\2\2yz\7\f\2\2z{\5\"\22\2{|\7&\2\2|\35\3\2\2\2}~\b\20"+
-		"\1\2~\177\7\32\2\2\177\u008c\5\36\20\n\u0080\u0081\7\r\2\2\u0081\u008c"+
-		"\5\36\20\t\u0082\u0083\7.\2\2\u0083\u0085\7\16\2\2\u0084\u0082\3\2\2\2"+
-		"\u0085\u0088\3\2\2\2\u0086\u0084\3\2\2\2\u0086\u0087\3\2\2\2\u0087\u0089"+
-		"\3\2\2\2\u0088\u0086\3\2\2\2\u0089\u008c\7.\2\2\u008a\u008c\5\"\22\2\u008b"+
-		"}\3\2\2\2\u008b\u0080\3\2\2\2\u008b\u0086\3\2\2\2\u008b\u008a\3\2\2\2"+
-		"\u008c\u009b\3\2\2\2\u008d\u008e\f\b\2\2\u008e\u008f\t\2\2\2\u008f\u009a"+
-		"\5\36\20\t\u0090\u0091\f\7\2\2\u0091\u0092\t\3\2\2\u0092\u009a\5\36\20"+
-		"\b\u0093\u0094\f\6\2\2\u0094\u0095\7\23\2\2\u0095\u009a\5\36\20\7\u0096"+
-		"\u0097\f\5\2\2\u0097\u0098\7\22\2\2\u0098\u009a\5\36\20\6\u0099\u008d"+
-		"\3\2\2\2\u0099\u0090\3\2\2\2\u0099\u0093\3\2\2\2\u0099\u0096\3\2\2\2\u009a"+
-		"\u009d\3\2\2\2\u009b\u0099\3\2\2\2\u009b\u009c\3\2\2\2\u009c\37\3\2\2"+
-		"\2\u009d\u009b\3\2\2\2\u009e\u009f\b\21\1\2\u009f\u00a0\5\"\22\2\u00a0"+
-		"\u00b3\3\2\2\2\u00a1\u00a2\f\7\2\2\u00a2\u00a3\t\4\2\2\u00a3\u00b2\5 "+
-		"\21\b\u00a4\u00a5\f\6\2\2\u00a5\u00a6\t\5\2\2\u00a6\u00b2\5 \21\7\u00a7"+
-		"\u00a8\f\5\2\2\u00a8\u00a9\t\6\2\2\u00a9\u00b2\5 \21\6\u00aa\u00af\f\4"+
-		"\2\2\u00ab\u00ac\7\32\2\2\u00ac\u00b0\7\32\2\2\u00ad\u00ae\7\33\2\2\u00ae"+
-		"\u00b0\7\33\2\2\u00af\u00ab\3\2\2\2\u00af\u00ad\3\2\2\2\u00b0\u00b2\3"+
-		"\2\2\2\u00b1\u00a1\3\2\2\2\u00b1\u00a4\3\2\2\2\u00b1\u00a7\3\2\2\2\u00b1"+
-		"\u00aa\3\2\2\2\u00b2\u00b5\3\2\2\2\u00b3\u00b1\3\2\2\2\u00b3\u00b4\3\2"+
-		"\2\2\u00b4!\3\2\2\2\u00b5\u00b3\3\2\2\2\u00b6\u00b7\7%\2\2\u00b7\u00b8"+
-		"\5\36\20\2\u00b8\u00b9\7&\2\2\u00b9\u00c0\3\2\2\2\u00ba\u00c0\t\7\2\2"+
-		"\u00bb\u00c0\t\b\2\2\u00bc\u00c0\7.\2\2\u00bd\u00c0\7\61\2\2\u00be\u00c0"+
-		"\7\21\2\2\u00bf\u00b6\3\2\2\2\u00bf\u00ba\3\2\2\2\u00bf\u00bb\3\2\2\2"+
-		"\u00bf\u00bc\3\2\2\2\u00bf\u00bd\3\2\2\2\u00bf\u00be\3\2\2\2\u00c0#\3"+
-		"\2\2\2\17*\67?Dc\u0086\u008b\u0099\u009b\u00af\u00b1\u00b3\u00bf";
+		"\4\23\t\23\4\24\t\24\3\2\3\2\3\2\3\3\7\3-\n\3\f\3\16\3\60\13\3\3\4\3\4"+
+		"\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4<\n\4\3\5\3\5\3\5\3\5\7\5B\n\5\f\5"+
+		"\16\5E\13\5\3\5\3\5\5\5I\n\5\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\b\3\b\3"+
+		"\b\3\b\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\13\3\13\3\13"+
+		"\3\13\3\13\5\13h\n\13\3\f\3\f\3\f\5\fm\n\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r"+
+		"\5\rv\n\r\3\r\3\r\3\r\3\16\3\16\3\16\7\16~\n\16\f\16\16\16\u0081\13\16"+
+		"\3\16\3\16\3\17\3\17\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21"+
+		"\3\21\3\22\3\22\3\22\3\22\3\22\3\22\5\22\u0098\n\22\3\22\3\22\3\22\3\22"+
+		"\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\7\22\u00a6\n\22\f\22\16\22\u00a9"+
+		"\13\22\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23"+
+		"\3\23\3\23\3\23\3\23\5\23\u00bc\n\23\7\23\u00be\n\23\f\23\16\23\u00c1"+
+		"\13\23\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\5\24\u00cc\n\24\3"+
+		"\24\2\4\"$\25\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&\2\n\4\2\f\r"+
+		".\60\3\2\26\31\3\2\24\25\3\2\34\36\3\2\32\33\3\2\37\"\3\2/\60\3\2\f\r"+
+		"\u00d8\2(\3\2\2\2\4.\3\2\2\2\6;\3\2\2\2\b=\3\2\2\2\nJ\3\2\2\2\fN\3\2\2"+
+		"\2\16R\3\2\2\2\20Y\3\2\2\2\22_\3\2\2\2\24g\3\2\2\2\26i\3\2\2\2\30q\3\2"+
+		"\2\2\32\177\3\2\2\2\34\u0084\3\2\2\2\36\u0086\3\2\2\2 \u008a\3\2\2\2\""+
+		"\u0097\3\2\2\2$\u00aa\3\2\2\2&\u00cb\3\2\2\2()\5\4\3\2)*\7\2\2\3*\3\3"+
+		"\2\2\2+-\5\6\4\2,+\3\2\2\2-\60\3\2\2\2.,\3\2\2\2./\3\2\2\2/\5\3\2\2\2"+
+		"\60.\3\2\2\2\61<\5\b\5\2\62<\5\f\7\2\63<\5\36\20\2\64<\5\n\6\2\65<\5\30"+
+		"\r\2\66<\5\26\f\2\67<\5\20\t\289\5$\23\29:\7#\2\2:<\3\2\2\2;\61\3\2\2"+
+		"\2;\62\3\2\2\2;\63\3\2\2\2;\64\3\2\2\2;\65\3\2\2\2;\66\3\2\2\2;\67\3\2"+
+		"\2\2;8\3\2\2\2<\7\3\2\2\2=>\7\3\2\2>C\5\22\n\2?@\7\4\2\2@B\5\22\n\2A?"+
+		"\3\2\2\2BE\3\2\2\2CA\3\2\2\2CD\3\2\2\2DH\3\2\2\2EC\3\2\2\2FG\7\5\2\2G"+
+		"I\5\24\13\2HF\3\2\2\2HI\3\2\2\2I\t\3\2\2\2JK\7\6\2\2KL\5\"\22\2LM\5\24"+
+		"\13\2M\13\3\2\2\2NO\7\7\2\2OP\5\16\b\2PQ\5\24\13\2Q\r\3\2\2\2RS\7%\2\2"+
+		"ST\5\20\t\2TU\5\"\22\2UV\7#\2\2VW\5$\23\2WX\7&\2\2X\17\3\2\2\2YZ\7(\2"+
+		"\2Z[\7.\2\2[\\\7$\2\2\\]\5\"\22\2]^\7#\2\2^\21\3\2\2\2_`\5\"\22\2`a\5"+
+		"\24\13\2a\23\3\2\2\2bc\7\b\2\2cd\5\4\3\2de\7\t\2\2eh\3\2\2\2fh\5\6\4\2"+
+		"gb\3\2\2\2gf\3\2\2\2h\25\3\2\2\2ij\7.\2\2jl\7%\2\2km\5\32\16\2lk\3\2\2"+
+		"\2lm\3\2\2\2mn\3\2\2\2no\7&\2\2op\7#\2\2p\27\3\2\2\2qr\7\n\2\2rs\7.\2"+
+		"\2su\7%\2\2tv\5\32\16\2ut\3\2\2\2uv\3\2\2\2vw\3\2\2\2wx\7&\2\2xy\5\24"+
+		"\13\2y\31\3\2\2\2z{\5\34\17\2{|\7\13\2\2|~\3\2\2\2}z\3\2\2\2~\u0081\3"+
+		"\2\2\2\177}\3\2\2\2\177\u0080\3\2\2\2\u0080\u0082\3\2\2\2\u0081\177\3"+
+		"\2\2\2\u0082\u0083\5\34\17\2\u0083\33\3\2\2\2\u0084\u0085\t\2\2\2\u0085"+
+		"\35\3\2\2\2\u0086\u0087\7\16\2\2\u0087\u0088\5 \21\2\u0088\u0089\5\24"+
+		"\13\2\u0089\37\3\2\2\2\u008a\u008b\7%\2\2\u008b\u008c\7(\2\2\u008c\u008d"+
+		"\7.\2\2\u008d\u008e\7\17\2\2\u008e\u008f\5&\24\2\u008f\u0090\7&\2\2\u0090"+
+		"!\3\2\2\2\u0091\u0092\b\22\1\2\u0092\u0093\7\32\2\2\u0093\u0098\5\"\22"+
+		"\t\u0094\u0095\7\20\2\2\u0095\u0098\5\"\22\b\u0096\u0098\5&\24\2\u0097"+
+		"\u0091\3\2\2\2\u0097\u0094\3\2\2\2\u0097\u0096\3\2\2\2\u0098\u00a7\3\2"+
+		"\2\2\u0099\u009a\f\7\2\2\u009a\u009b\t\3\2\2\u009b\u00a6\5\"\22\b\u009c"+
+		"\u009d\f\6\2\2\u009d\u009e\t\4\2\2\u009e\u00a6\5\"\22\7\u009f\u00a0\f"+
+		"\5\2\2\u00a0\u00a1\7\23\2\2\u00a1\u00a6\5\"\22\6\u00a2\u00a3\f\4\2\2\u00a3"+
+		"\u00a4\7\22\2\2\u00a4\u00a6\5\"\22\5\u00a5\u0099\3\2\2\2\u00a5\u009c\3"+
+		"\2\2\2\u00a5\u009f\3\2\2\2\u00a5\u00a2\3\2\2\2\u00a6\u00a9\3\2\2\2\u00a7"+
+		"\u00a5\3\2\2\2\u00a7\u00a8\3\2\2\2\u00a8#\3\2\2\2\u00a9\u00a7\3\2\2\2"+
+		"\u00aa\u00ab\b\23\1\2\u00ab\u00ac\5&\24\2\u00ac\u00bf\3\2\2\2\u00ad\u00ae"+
+		"\f\7\2\2\u00ae\u00af\t\5\2\2\u00af\u00be\5$\23\b\u00b0\u00b1\f\6\2\2\u00b1"+
+		"\u00b2\t\6\2\2\u00b2\u00be\5$\23\7\u00b3\u00b4\f\5\2\2\u00b4\u00b5\t\7"+
+		"\2\2\u00b5\u00be\5$\23\6\u00b6\u00bb\f\4\2\2\u00b7\u00b8\7\32\2\2\u00b8"+
+		"\u00bc\7\32\2\2\u00b9\u00ba\7\33\2\2\u00ba\u00bc\7\33\2\2\u00bb\u00b7"+
+		"\3\2\2\2\u00bb\u00b9\3\2\2\2\u00bc\u00be\3\2\2\2\u00bd\u00ad\3\2\2\2\u00bd"+
+		"\u00b0\3\2\2\2\u00bd\u00b3\3\2\2\2\u00bd\u00b6\3\2\2\2\u00be\u00c1\3\2"+
+		"\2\2\u00bf\u00bd\3\2\2\2\u00bf\u00c0\3\2\2\2\u00c0%\3\2\2\2\u00c1\u00bf"+
+		"\3\2\2\2\u00c2\u00c3\7%\2\2\u00c3\u00c4\5\"\22\2\u00c4\u00c5\7&\2\2\u00c5"+
+		"\u00cc\3\2\2\2\u00c6\u00cc\t\b\2\2\u00c7\u00cc\t\t\2\2\u00c8\u00cc\7."+
+		"\2\2\u00c9\u00cc\7\61\2\2\u00ca\u00cc\7\21\2\2\u00cb\u00c2\3\2\2\2\u00cb"+
+		"\u00c6\3\2\2\2\u00cb\u00c7\3\2\2\2\u00cb\u00c8\3\2\2\2\u00cb\u00c9\3\2"+
+		"\2\2\u00cb\u00ca\3\2\2\2\u00cc\'\3\2\2\2\21.;CHglu\177\u0097\u00a5\u00a7"+
+		"\u00bb\u00bd\u00bf\u00cb";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -42,10 +42,10 @@ expressie:  MINUS expressie #minusExpr
  | leftExpr=expressie OF rightExpr=expressie #ofofExpr
  | atom #atomCondExpr;
 
-value_expressie:  value_expressie op=(KEER | GEDEELDDOOR | MODULO ) value_expressie #keerGddModExpr
- | value_expressie op=(PLUS | MINUS) value_expressie #plusMinExpr
- | value_expressie op=(KEERIS | GEDEELDDOORIS | MINIS | PLUSIS) value_expressie #isRekenExpr
- | value_expressie (MINUS MINUS | PLUS PLUS) #minminPlusPlusExpr
+value_expressie:  leftExpr=value_expressie op=(KEER | GEDEELDDOOR | MODULO )rightExpr=value_expressie #keerGddModExpr
+ | leftExpr=value_expressie op=(PLUS | MINUS) rightExpr=value_expressie #plusMinExpr
+ | leftExpr=value_expressie op=(KEERIS | GEDEELDDOORIS | MINIS | PLUSIS) rightExpr=value_expressie #isRekenExpr
+ | leftExpr=value_expressie (MINUS MINUS | PLUS PLUS) #minminPlusPlusExpr
  | atom #atomValueExpr;
 
 atom: HAAKOPEN expressie HAAKSLUIT

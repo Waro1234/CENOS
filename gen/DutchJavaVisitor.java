@@ -132,6 +132,18 @@ public interface DutchJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMethodeUITVOERING(DutchJavaParser.MethodeUITVOERINGContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DutchJavaParser#argument}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgument(DutchJavaParser.ArgumentContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DutchJavaParser#argument_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgument_type(DutchJavaParser.Argument_typeContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DutchJavaParser#vooralle_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -172,13 +184,6 @@ public interface DutchJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitGelijkheidExpr(DutchJavaParser.GelijkheidExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code argumentExpr}
-	 * labeled alternative in {@link DutchJavaParser#expressie}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArgumentExpr(DutchJavaParser.ArgumentExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code enenExpr}
 	 * labeled alternative in {@link DutchJavaParser#expressie}.

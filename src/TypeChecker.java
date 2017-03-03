@@ -1,45 +1,15 @@
-import org.antlr.v4.runtime.tree.ParseTree;
-
 /**
  * Created by sklar on 2/17/2017.
  */
-public class TypeChecker extends DutchJavaBaseVisitor{
+public class TypeChecker extends DutchJavaBaseVisitor {
+    private enum Type {
+        BOOL,
+        INT,
+        STRING,
+        EXCEPTION;
+    }
+
     public TypeChecker() {
-    }
-
-    @Override
-    public Object visitAlsStatement(DutchJavaParser.AlsStatementContext ctx) {
-        return super.visitAlsStatement(ctx);
-    }
-
-    @Override
-    public Object visitVoorStatement(DutchJavaParser.VoorStatementContext ctx) {
-        return super.visitVoorStatement(ctx);
-    }
-
-    @Override
-    public Object visitVoorAlleStatement(DutchJavaParser.VoorAlleStatementContext ctx) {
-        return super.visitVoorAlleStatement(ctx);
-    }
-
-    @Override
-    public Object visitZolangStatement(DutchJavaParser.ZolangStatementContext ctx) {
-        return super.visitZolangStatement(ctx);
-    }
-
-    @Override
-    public Object visitMethodeUitvoeringStatement(DutchJavaParser.MethodeUitvoeringStatementContext ctx) {
-        return super.visitMethodeUitvoeringStatement(ctx);
-    }
-
-    @Override
-    public Object visitMethodeAanroepStatement(DutchJavaParser.MethodeAanroepStatementContext ctx) {
-        return super.visitMethodeAanroepStatement(ctx);
-    }
-
-    @Override
-    public Object visitToekenningStatement(DutchJavaParser.ToekenningStatementContext ctx) {
-        return super.visitToekenningStatement(ctx);
     }
 
     @Override
@@ -48,28 +18,8 @@ public class TypeChecker extends DutchJavaBaseVisitor{
     }
 
     @Override
-    public Object visitAls_statement(DutchJavaParser.Als_statementContext ctx) {
-        return super.visitAls_statement(ctx);
-    }
-
-    @Override
-    public Object visitZolang_statement(DutchJavaParser.Zolang_statementContext ctx) {
-        return super.visitZolang_statement(ctx);
-    }
-
-    @Override
-    public Object visitVoor_statement(DutchJavaParser.Voor_statementContext ctx) {
-        return super.visitVoor_statement(ctx);
-    }
-
-    @Override
-    public Object visitVoor_blok(DutchJavaParser.Voor_blokContext ctx) {
-        return super.visitVoor_blok(ctx);
-    }
-
-    @Override
     public Object visitConditie_block(DutchJavaParser.Conditie_blockContext ctx) {
-        ctx.expr.
+        //ctx.expr.
         return super.visitConditie_block(ctx);
     }
 
@@ -77,27 +27,51 @@ public class TypeChecker extends DutchJavaBaseVisitor{
      * Logische expressies
      */
     @Override
-    public Boolean visitNietExpr(DutchJavaParser.NietExprContext ctx) {
-       // return super.visitNietExpr(ctx);
+    public Type visitNietExpr(DutchJavaParser.NietExprContext ctx) {
+        // return super.visitNietExpr(ctx);
+        if (visit(ctx.expressie()) == Type.BOOL) {
+
+        }
+        return Type.BOOL;
     }
 
     @Override
-    public Boolean visitVergelijkingExpr(DutchJavaParser.VergelijkingExprContext ctx) {
-     //   return super.visitVergelijkingExpr(ctx);
+    public Type visitVergelijkingExpr(DutchJavaParser.VergelijkingExprContext ctx) {
+        ctx.leftExpr;
+        ctx.rightExpr;
+        return Type.EXCEPTION;
     }
 
     @Override
-    public Boolean visitOfofExpr(DutchJavaParser.OfofExprContext ctx) {
-       // return super.visitOfofExpr(ctx);
+    public Object visitGelijkheidExpr(DutchJavaParser.GelijkheidExprContext ctx) {
+        return super.visitGelijkheidExpr(ctx);
     }
 
     @Override
-    public Boolean visitGelijkheidExpr(DutchJavaParser.GelijkheidExprContext ctx) {
-       // return super.visitGelijkheidExpr(ctx);
+    public Type visitEnenExpr(DutchJavaParser.EnenExprContext ctx) {
+        if (visit(ctx.leftExpr) == Type.BOOL && visit(ctx.rightExpr) == Type.BOOL) {
+            return Type.BOOL;
+        } else {
+            try {
+                throw new Exception("Error, expected bool");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return Type.EXCEPTION;
     }
 
     @Override
-    public Boolean visitEnenExpr(DutchJavaParser.EnenExprContext ctx) {
-        return true;
+    public Object visitOfofExpr(DutchJavaParser.OfofExprContext ctx) {
+        if (visit(ctx.leftExpr) == Type.BOOL && visit(ctx.rightExpr) == Type.BOOL) {
+            return Type.BOOL;
+        } else {
+            try {
+                throw new Exception("Error, expected bool");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return Type.EXCEPTION;
     }
 }
