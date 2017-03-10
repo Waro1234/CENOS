@@ -1,4 +1,4 @@
-// Generated from D:/School/kwartiel 3/Compilers en operating systems/Our language\DutchJava.g4 by ANTLR 4.6
+// Generated from /Volumes/Opslag/School/Leerjaar 2 Kwartiel 3/Compilers en operatingsystems/Git/DutchJava.g4 by ANTLR 4.6
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -383,6 +383,7 @@ public class DutchJavaParser extends Parser {
 	}
 
 	public static class Als_statementContext extends ParserRuleContext {
+		public Conditie_blockContext cond_block;
 		public List<Conditie_blockContext> conditie_block() {
 			return getRuleContexts(Conditie_blockContext.class);
 		}
@@ -413,7 +414,7 @@ public class DutchJavaParser extends Parser {
 			setState(59);
 			match(T__0);
 			setState(60);
-			conditie_block();
+			((Als_statementContext)_localctx).cond_block = conditie_block();
 			setState(65);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);

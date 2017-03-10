@@ -1,22 +1,25 @@
 import java.util.ArrayList;
 
-/**
- * Created by sklar on 2/17/2017.
- */
 public class Scope {
-    private ArrayList<Object> vars;
-    private Scope parent;
-
-    public Scope(ArrayList<Object> vars, Scope parent) {
-        this.vars = vars;
-        this.parent = parent;
+    public enum Type {
+        BOOL,
+        INT,
+        STRING,
+        VOID,
+        LONG;
     }
 
-    public ArrayList<Object> getVars() {
+    private ArrayList<Variable> vars;
+
+    public Scope() {
+        this.vars = new ArrayList<>();
+    }
+
+    public ArrayList<Variable> getVars() {
         return vars;
     }
 
-    public Scope getParent() {
-        return parent;
+    public void addVar(Variable var){
+        this.vars.add(var);
     }
 }

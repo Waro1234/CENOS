@@ -13,7 +13,7 @@ statement: als_statement #alsStatement
  | toekenning #toekenningStatement
  | value_expressie SEMICOL #expressieStatement;
 
-als_statement: 'als' conditie_block ('alsanders' conditie_block)* ('anders' stat_blok)?;
+als_statement: 'als' cond_block=conditie_block ('alsanders' conditie_block)* ('anders' stat_blok)?;
 
 zolang_statement: 'zolang' expressie stat_blok;
 

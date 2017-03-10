@@ -1,4 +1,4 @@
-// Generated from D:/School/kwartiel 3/Compilers en operating systems/Our language\DutchJava.g4 by ANTLR 4.6
+// Generated from /Volumes/Opslag/School/Leerjaar 2 Kwartiel 3/Compilers en operatingsystems/Git/DutchJava.g4 by ANTLR 4.6
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
